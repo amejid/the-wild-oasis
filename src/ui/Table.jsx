@@ -61,7 +61,7 @@ const Empty = styled.p`
   margin: 2.4rem;
 `;
 
-const TableContext = createContext();
+const TableContext = createContext({ columns: '' });
 
 const Table = ({ columns, children }) => {
   return (
@@ -69,11 +69,6 @@ const Table = ({ columns, children }) => {
       <StyledTable role="table">{children}</StyledTable>
     </TableContext.Provider>
   );
-};
-
-Table.propTypes = {
-  children: PropTypes.any.isRequired,
-  columns: PropTypes.string,
 };
 
 const Header = ({ children }) => {
@@ -85,10 +80,6 @@ const Header = ({ children }) => {
   );
 };
 
-Header.propTypes = {
-  children: PropTypes.any.isRequired,
-};
-
 const Row = ({ children }) => {
   const { columns } = useContext(TableContext);
   return (
@@ -98,13 +89,22 @@ const Row = ({ children }) => {
   );
 };
 
-Row.propTypes = {
-  children: PropTypes.any.isRequired,
-};
-
 const Body = ({ data, render }) => {
   if (!data.length) return <Empty>No data to show at the moment</Empty>;
   return <StyledBody>{data.map(render)}</StyledBody>;
+};
+
+Table.propTypes = {
+  children: PropTypes.any.isRequired,
+  columns: PropTypes.string,
+};
+
+Header.propTypes = {
+  children: PropTypes.any.isRequired,
+};
+
+Row.propTypes = {
+  children: PropTypes.any.isRequired,
 };
 
 Body.propTypes = {
