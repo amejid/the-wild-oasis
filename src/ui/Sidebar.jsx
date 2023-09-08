@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import Uploader from '../data/Uploader.jsx';
 import Logo from './Logo.jsx';
 import MainNav from './MainNav.jsx';
 
@@ -19,6 +20,7 @@ const Sidebar = () => {
     <StyledSidebar>
       <Logo />
       <MainNav />
+      <Uploader />
     </StyledSidebar>
   );
 };
