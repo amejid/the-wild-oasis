@@ -1,12 +1,22 @@
 import { getToday } from '../utils/helpers.js';
 import supabase from './supabase';
 
-export const getBookings = async () => {
-  const { data, error } = await supabase
+export const getBookings = async ({ filter, sortBy }) => {
+  let query = supabase
     .from('bookings')
     .select(
       'id, created_at, startDate, endDate, numNights, numGuests, status, totalPrice, cabins(name), guests(fullName, email)',
     );
+
+  if (filter) query = query.eq(filter.field, filter.value);
+
+  if (sortBy)
+    query = query.order(sortBy.field, {
+      ascending: sortBy.direction === 'asc',
+    });
+
+  const { data, error } = await query;
+
   if (error) {
     console.error(error);
     throw new Error('Bookings could not be loaded');
