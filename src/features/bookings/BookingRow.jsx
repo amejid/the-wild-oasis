@@ -1,7 +1,10 @@
 import { format, isToday } from 'date-fns';
 import PropTypes from 'prop-types';
+import { HiEye } from 'react-icons/hi2';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Menus from '../../ui/Menus.jsx';
 import Table from '../../ui/Table.jsx';
 import Tag from '../../ui/Tag.jsx';
 import { formatCurrency } from '../../utils/helpers.js';
@@ -48,6 +51,7 @@ const BookingRow = ({
     cabins: { name: cabinName },
   },
 }) => {
+  const navigate = useNavigate();
   const statusToTagName = {
     unconfirmed: 'blue',
     'checked-in': 'green',
@@ -79,6 +83,18 @@ const BookingRow = ({
       <Tag $type={statusToTagName[status]}>{status.replace('-', ' ')}</Tag>
 
       <Amount>{formatCurrency(totalPrice)}</Amount>
+
+      <Menus.Menu>
+        <Menus.Toggle id={bookingId} />
+        <Menus.List id={bookingId}>
+          <Menus.Button
+            icon={<HiEye />}
+            onClick={() => navigate(`/bookings/${bookingId}`)}
+          >
+            See details
+          </Menus.Button>
+        </Menus.List>
+      </Menus.Menu>
     </Table.Row>
   );
 };

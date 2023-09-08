@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import Account from './pages/Account.jsx';
+import Booking from './pages/Booking.jsx';
 import Bookings from './pages/Bookings.jsx';
 import Cabins from './pages/Cabins.jsx';
 import Dashboard from './pages/Dashboard.jsx';
@@ -33,6 +34,7 @@ const App = () => {
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="bookings" element={<Bookings />} />
+            <Route path="bookings/:bookingId" element={<Booking />} />
             <Route path="cabins" element={<Cabins />} />
             <Route path="users" element={<Users />} />
             <Route path="settings" element={<Settings />} />
