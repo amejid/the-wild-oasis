@@ -51,6 +51,7 @@ const Filter = ({ filterField, options }) => {
           key={option.value}
           onClick={() => handleClick(option.value)}
           $active={option.value === currentValue}
+          disabled={option.value === currentValue}
         >
           {option.label}
         </FilterButton>
@@ -66,7 +67,7 @@ Filter.propTypes = {
       value: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
     }),
-  ),
+  ).isRequired,
 };
 
 export default Filter;
