@@ -44,7 +44,7 @@ const Checkbox = ({ checked, onChange, disabled = false, id, children }) => {
 Checkbox.propTypes = {
   checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
-  disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
   children: PropTypes.any.isRequired,
 };
