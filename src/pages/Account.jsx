@@ -1,3 +1,5 @@
+import UpdatePasswordForm from '../features/authentication/UpdatePasswordForm.jsx';
+import UpdateUserDataForm from '../features/authentication/UpdateUserDataForm.jsx';
 import Heading from '../ui/Heading.jsx';
 import Row from '../ui/Row.jsx';
 
@@ -8,12 +10,12 @@ const Account = () => {
 
       <Row>
         <Heading as="h3">Update user data</Heading>
-        <p>Update user data form</p>
+        <UpdateUserDataForm />
       </Row>
 
       <Row>
         <Heading as="h3">Update password</Heading>
-        <p>Update user password form</p>
+        <UpdatePasswordForm />
       </Row>
     </>
   );
