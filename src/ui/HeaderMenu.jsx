@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Logout from '../features/authentication/Logout.jsx';
 import ButtonIcon from './ButtonIcon.jsx';
+import DarkModeToggle from './DarkModeToggle.jsx';
 
 const StyledHeaderMenu = styled.ul`
   display: flex;
@@ -18,6 +19,9 @@ const HeaderMenu = () => {
         <ButtonIcon onClick={() => navigate('/account')}>
           <HiOutlineUser />
         </ButtonIcon>
+      </li>
+      <li>
+        <DarkModeToggle />
       </li>
       <li>
         <Logout />
