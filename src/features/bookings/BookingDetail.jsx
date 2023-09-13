@@ -7,6 +7,7 @@ import Button from '../../ui/Button.jsx';
 import ButtonGroup from '../../ui/ButtonGroup.jsx';
 import ButtonText from '../../ui/ButtonText.jsx';
 import ConfirmDelete from '../../ui/ConfirmDelete.jsx';
+import Empty from '../../ui/Empty.jsx';
 import Heading from '../../ui/Heading';
 import Modal from '../../ui/Modal.jsx';
 import Row from '../../ui/Row';
@@ -32,6 +33,7 @@ const BookingDetail = () => {
   const moveBack = useMoveBack();
 
   if (isLoading) return <Spinner />;
+  if (!booking) return <Empty resourceName="booking" />;
 
   const { status, id: bookingId } = booking;
   const statusToTagName = {
